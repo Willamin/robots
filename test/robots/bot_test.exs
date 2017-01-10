@@ -3,23 +3,31 @@ defmodule Robots.BotTest do
 
   alias Robots.Bot
 
-  setup do
-    {:ok, %{bot: Bot.new()}}
-  end
-
   test "robots start at 0, 0", %{bot: bot} do
+    bot = Bot.new()
     assert Bot.y(bot) == 0
     assert Bot.x(bot) == 0
   end
 
   test "robots can say hey" do
+    bot  = Bot.new()
     dave = Bot.new(name: "Dave")
     jane = Bot.new(name: "Jane")
+    assert Bot.greetings(bot)  == "Hey, my name is Bot"
     assert Bot.greetings(dave) == "Hey, my name is Dave"
     assert Bot.greetings(jane) == "Hey, my name is Jane"
   end
 
+  describe "bots can be initialized with a speed" do
+    assert Bot.new() |> Bot.speed() == 1
+    assert Bot.new(speed: 5) |> Bot.speed() == 5
+  end
+
   describe "move/2" do
+    setup do
+      {:ok, %{bot: Bot.new()}}
+    end
+
     test "can move the robot north", %{bot: bot} do
       bot = Bot.move(:north, by: 10)
       assert Bot.y(bot) == 10
