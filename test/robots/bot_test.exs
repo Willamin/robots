@@ -3,7 +3,7 @@ defmodule Robots.BotTest do
 
   alias Robots.Bot
 
-  test "robots start at 0, 0", %{bot: bot} do
+  test "robots start at 0, 0" do
     bot = Bot.new()
     assert Bot.y(bot) == 0
     assert Bot.x(bot) == 0
@@ -18,7 +18,7 @@ defmodule Robots.BotTest do
     assert Bot.greetings(jane) == "Hey, my name is Jane"
   end
 
-  describe "bots can be initialized with a speed" do
+  test "bots can be initialized with a speed" do
     assert Bot.new() |> Bot.speed() == 1
     assert Bot.new(speed: 5) |> Bot.speed() == 5
   end
@@ -64,12 +64,13 @@ defmodule Robots.BotTest do
 
       assert bot
       |> Bot.set_speed(5)
-      |> Bot.move(:east by: 10)
+      |> Bot.move(:east, by: 10)
       |> Bot.x() == 50
 
       assert bot
       |> Bot.set_speed(5)
       |> Bot.move(:west, by: 10)
       |> Bot.x() == -50
+    end
   end
 end
