@@ -1,24 +1,22 @@
 # Robots
 
-**TODO: Add description**
+An example of how to create apis with structs, maps, and keyword lists.
 
-## Installation
+## What do I do?
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+1. Clone this repo
+2. run `mix test`
+3. Make the tests pass.
 
-  1. Add `robots` to your list of dependencies in `mix.exs`:
+The tests are designed to give you an idea of how to structure the api. You should use them as reference.
 
-    ```elixir
-    def deps do
-      [{:robots, "~> 0.1.0"}]
-    end
-    ```
+## What do I do if I make all the tests pass?
 
-  2. Ensure `robots` is started before your application:
+Use your imagination! In case you don't have an imagination here are some ideas:
 
-    ```elixir
-    def application do
-      [applications: [:robots]]
-    end
-    ```
-
+* Add more tests or functionality
+* Print your robots movement to the console
+* Build a simulation of robots and add interactions or collision detection
+* Take said simulation and hook them up through phoenix channels and visualize everything with javascript
+* If you don't wanna use phoenix then figure out how to distribute a robot simulation across BEAM nodes.
+* Learn something awesome about Elixir.
